@@ -1,6 +1,9 @@
+FROM php:8.2-cli
 
-FROM php:8.2-apache
+WORKDIR /var/www/html
 
-COPY . /var/www/html/
+COPY . .
 
-EXPOSE 80
+EXPOSE 10000
+
+CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-10000} -t ."]
